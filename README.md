@@ -7,3 +7,6 @@ Catppuccin Stylus port for TUWEL
 2. Click [here](https://github.com/Cinnazeyy/TUWEL-Catppuccin/raw/refs/heads/master/tuwel.user.less) to open up the raw user.less file
 3. Stylus should pop up and ask you to save/import it.
 4. Select your desired flavour and thats it! :)
+
+> [!WARNING]  
+> Make sure to disable DarkReader on TUWEL if you have that installed, because that will interfere with some styling
