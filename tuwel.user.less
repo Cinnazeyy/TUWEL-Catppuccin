@@ -1,0 +1,409 @@
+/* ==UserStyle==
+@name TUWEL Catppuccin
+@namespace github.com/catppuccin/userstyles/styles/<port-name>
+@homepageURL https://github.com/catppuccin/userstyles/tree/main/styles/<port-name>
+@version 2000.01.01
+@updateURL https://github.com/catppuccin/userstyles/raw/main/styles/<port-name>/catppuccin.user.less
+@supportURL https://github.com/catppuccin/userstyles/issues?q=is%3Aopen+is%3Aissue+label%3A<port-name>
+@description Soothing pastel theme for TUWEL
+@author Cinnazeyy
+@license MIT
+
+@preprocessor less
+@var select lightFlavor "Light Flavor" ["latte:Latte*", "frappe:Frappé", "macchiato:Macchiato", "mocha:Mocha"]
+@var select darkFlavor "Dark Flavor" ["latte:Latte", "frappe:Frappé", "macchiato:Macchiato", "mocha:Mocha*"]
+@var select accentColor "Accent" ["rosewater:Rosewater", "flamingo:Flamingo", "pink:Pink", "mauve:Mauve*", "red:Red", "maroon:Maroon", "peach:Peach", "yellow:Yellow", "green:Green", "teal:Teal", "blue:Blue", "sapphire:Sapphire", "sky:Sky", "lavender:Lavender", "subtext0:Gray"]
+==/UserStyle== */
+@import "https://userstyles.catppuccin.com/lib/lib.less";
+
+@-moz-document url-prefix("https://tuwel.tuwien.ac.at/") {
+    :root {
+        @media (prefers-color-scheme: light) {
+            #catppuccin(@lightFlavor);
+        }
+        @media (prefers-color-scheme: dark) {
+            #catppuccin(@darkFlavor);
+        }
+    }
+    :root[data-theme="dark"] {
+        #catppuccin(@darkFlavor);
+    }
+    :root[data-theme="light"] {
+        #catppuccin(@lightFlavor);
+    }
+
+    #catppuccin(@flavor) {
+        #lib.palette();
+        #lib.defaults();
+
+        /* ----- GLOBAL VARIABLES ----- */
+        --bs-body-bg: @base;
+        --bs-body-color: @text;
+        --bs-white-rgb: red(@base), green(@base), blue(@base);
+        --bs-bg-opacity: 1 !important;
+        --bs-heading-color: @maroon;
+        --bs-link-color-rgb: red(@lavender), green(@lavender), blue(@lavender);
+        --bs-link-color: @lavender;
+        --bs-link-hover-color-rgb: red(@blue), green(@blue), blue(@blue);
+        --bs-border-color: @surface0;
+        --bs-primary-rgb: red(@base), green(@base), blue(@base);
+        --bs-btn-hover-bg: @blue;
+        --bs-btn-bg: @lavender;
+        --bs-list-group-color: @subtext0;
+        --bs-list-group-action-hover-bg: @surface1;
+        --bs-gray-500: @surface0;
+        --bs-danger-rgb: red(@red), green(@red), blue(@red);
+        --bs-secondary-bg: @lavender;
+        --bs-focus-ring-color: @lavender;
+        --bs-success-rgb: red(@green), green(@green), blue(@green);
+        --bs-emphasis-color: @lavender;
+        --bs-link-color: @lavender;
+        --bs-btn-hover-color: @mantle;
+        --bs-secondary-rgb: red(@mantle), green(@mantle), blue(@mantle);
+        --bs-light-rgb: red(@base), green(@base), blue(@base);
+        --bs-form-invalid-color: @red;
+
+        /* ----- SURFACES ----- */
+        .bg-white {
+            background-color: rgba(red(@mantle), green(@mantle), blue(@mantle), 1) !important;
+        }
+        #region-main,
+        .message-app,
+        .content-item-container.unread,
+        .card.course-card,
+        #page.drawers .main-inner,
+        .moremenu .nav-link.active:focus,
+        .moremenu .nav-link:hover,
+        .nav-link.active:hover,
+        .nav-link.active:focus,
+        .moremenu .nav-link:focus {
+            background-color: @mantle;
+        }
+
+        /* ----- NAVBAR ----- */
+        nav.navbar label,
+        nav.navbar .usermenu,
+        .nav-link,
+        nav.navbar .nav-link {
+            color: @lavender !important;
+        }
+        .navbar .tuwien-langswitch,
+        .navbar .tuwien-langswitch:hover {
+            & when (@flavor =latte) {
+                background-color: @lavender !important;
+            }
+            & when not(@flavor =latte) {
+                background-color: @base !important;
+            }
+        }
+        .nav-tabs {
+            --bs-nav-tabs-link-active-color: @lavender;
+        }
+        .navbar .count-container {
+            background-color: @red;
+            color: @base;
+        }
+        .border-left {
+            border-color: @surface0 !important;
+        }
+        .nextlang {
+            color: @base !important;
+        }
+        .navbar .tuwien-langswitch .form-check-label::before,
+        .navbar .tuwien-langswitch .form-check-input:checked ~ .form-check-label::before {
+            background-color: @blue;
+        }
+        nav.navbar.fixed-top {
+            & when (@flavor =latte) {
+                box-shadow: 0 1px 5px 0 @crust;
+            }
+            & when not(@flavor =latte) {
+                box-shadow: 0 1px 5px 0 @mantle;
+            }
+        }
+        .moremenu .nav-tabs,
+        .secondary-navigation .navigation {
+            background-color: @crust;
+        }
+        nav.navbar .nav-link:focus,
+        nav.navbar .nav-link:hover {
+            background-color: @base !important;
+        }
+        & when (@flavor =latte) {
+            .bg-primary {
+                background-color: @lavender !important;
+            }
+        }
+
+        /* ----- BUTTONS ----- */
+        .btn:hover {
+            color: var(--bs-btn-hover-color) !important;
+            background-color: @base;
+        }
+        .btn-sm {
+            --bs-btn-hover-bg: @mantle;
+            --bs-btn-bg: @base;
+            --bs-btn-active-bg: @mantle;
+        }
+        .btn-secondary {
+            --bs-btn-hover-bg: @maroon;
+            --bs-btn-bg: @maroon;
+            --bs-btn-active-bg: @red;
+        }
+        .btn-outline-secondary {
+            --bs-btn-hover-color: @text;
+            --bs-btn-border-color: @surface0;
+            --bs-btn-hover-border-color: @surface0;
+            --bs-btn-active-border-color: @surface0;
+            --bs-btn-disabled-border-color: @surface0;
+            border-color: @surface0;
+            --bs-btn-active-bg: @base;
+            --bs-btn-hover-bg: @mantle;
+        }
+        .btn-primary {
+            --bs-btn-hover-bg: @sapphire;
+            --bs-btn-bg: @mauve;
+            --bs-btn-active-bg: @blue;
+            --bs-btn-color: @mantle;
+            --bs-btn-hover-color: @mantle;
+            --bs-btn-active-color: @mantle;
+        }
+        .btn-close {
+            color: @red !important;
+            background-color: @red;
+            opacity: 1;
+            border-radius: 0.5rem !important;
+        }
+
+        /* ----- DASHBOARD ----- */
+        .list-group {
+            --bs-list-group-action-color: @text;
+            --bs-list-group-action-hover-bg: @mantle;
+        }
+        input::placeholder {
+            color: @surface2 !important;
+        }
+
+        /* ----- PAGINATION ----- */
+        .pagination {
+            --bs-pagination-hover-color: @base;
+            --bs-pagination-hover-bg: @lavender;
+            --bs-pagination-active-bg: @lavender;
+            --bs-pagination-active-border-color: @lavender;
+            --bs-pagination-focus-box-shadow: 0 0 0 0.15rem rgba(red(@lavender), green(@lavender), blue(@lavender), 0.75);
+            --bs-pagination-active-color: @base;
+        }
+
+        /* ----- NOTIFICATIONS ----- */
+        .popover-region-container {
+            background-color: @mantle;
+            border: 1px solid @surface0;
+        }
+        .content-item-container {
+            background-color: @mantle;
+            border-bottom: 1px solid @surface0;
+        }
+
+        /* ----- INPUT ----- */
+        #email_email {
+            background-color: @base;
+        }
+        .dropdown-menu {
+            --bs-dropdown-bg: @mantle;
+            --bs-dropdown-color: @text;
+            --bs-dropdown-link-color: @text;
+            --bs-dropdown-link-hover-bg: @lavender;
+            --bs-dropdown-link-hover-color: @base;
+            --bs-dropdown-link-active-bg: @lavender;
+            --bs-dropdown-link-active-color: @base;
+        }
+
+        /* ----- GENERAL DRAWERS ----- */
+        .drawer {
+            background-color: @mantle;
+        }
+        .drawer.drawer-left #courseindexdrawercontrols .btn,
+        .drawer.drawer-left .courseindex .courseindex-item:not(.dragging) .courseindex-link,
+        .drawer.drawer-left .courseindex .courseindex-item:not(.dragging) .courseindex-chevron {
+            background-color: @base !important;
+            color: @text;
+        }
+        .drawer.drawer-left .courseindex .courseindex-item.pageitem,
+        .courseindex .courseindex-item:focus.pageitem,
+        .courseindex .courseindex-item:active.pageitem {
+            background-color: @base !important;
+            color: @text;
+        }
+        .drawer.drawer-left .courseindex .courseindex-item.pageitem {
+            border-left: 6px solid @lavender;
+        }
+
+        /* ----- MESSAGING ----- */
+        #message-user-button {
+            border-radius: 0.5rem;
+        }
+        .message-app .message.send,
+        .message-app .message.received {
+            background-color: @base;
+            color: @text;
+        }
+        .message-app .message.send .time,
+        .message-app .message.received .time {
+            color: @subtext0;
+        }
+        .message-app .message.send .tail,
+        .message-app .message.received .tail {
+            border-bottom-color: @base;
+        }
+
+        /* ----- BORDERS ----- */
+        .path-mod-organizer #organizer_main_cointainer table.overview td,
+        .preferences-container .preference-table tr th,
+        .preferences-container .preference-table tr td:nth-child(2n),
+        .preferences-container .preference-table,
+        .popover-region-footer-container,
+        .popover-region-header-container {
+            border-color: @surface0;
+        }
+
+        /* ----- CALENDER ----- */
+        .maincalendar .calendar_event_course {
+            background-color: @maroon;
+        }
+        .maincalendar .calendar_event_course h3 {
+            color: @base !important;
+        }
+        .drawer-toggles .drawer-toggler .btn:hover {
+            background-color: @lavender;
+        }
+        .drawer-toggles .drawer-toggler .btn {
+            background-color: @mantle;
+        }
+
+        /* ----- LOADING ANIMATION ----- */
+        // for the animation, i had to define separate keyframes for each flaver with a different name and only apply the one from the ative flavour,
+        // because otherwise it would define the same keyframes 4 times (1 per flavour) and always just pick the first one
+        &.bg-pulse-grey,
+        .bg-pulse-grey {
+            animation: ~ "bg-pulse-grey-@{flavor}" 2s infinite linear !important;
+        }
+        @keyframes ~ "bg-pulse-grey-@{flavor}" {
+            0% {
+                background-color: @surface0;
+            }
+            50% {
+                background-color: @surface1;
+            }
+            100% {
+                background-color: @surface0;
+            }
+        }
+
+        /* ----- COURSE ----- */
+        .course-section .section-item {
+            background-color: @base;
+            border: 0px solid;
+        }
+        .btn-icon.icons-collapse-expand {
+            color: @base;
+            background-color: @lavender;
+        }
+        .activity-item .activity-dates,
+        .resourcelinkdetails {
+            color: @subtext1;
+        }
+        .activity-item .activity-afterlink,
+        .activity-item .activity-altcontent.activity-description,
+        .activity {
+            border-color: @surface0;
+        }
+        .course-section .sectionname > a {
+            color: @maroon;
+        }
+        .course-section.current > .section-item::before {
+            border-color: @lavender;
+        }
+        .path-mod .activity-header:not(:empty) {
+            background-color: @base;
+        }
+        .path-mod .activity-information .completion-info,
+        .path-mod .activity-information .activity-dates {
+            border-bottom: 1px solid @surface0;
+        }
+        .courseindex .courseindex-item .completioninfo.completion_complete {
+            color: @lavender;
+        }
+
+        /* ----- SEARCH BAR ----- */
+        .simplesearchform .collapse.show {
+            background-color: @mantle;
+        }
+        .simplesearchform .btn-submit {
+            background-color: @lavender;
+            color: @base;
+        }
+
+        /* ----- SUBMISSION ----- */
+        .path-mod-assign td.earlysubmission,
+        .path-mod-assign td.submissionstatussubmitted {
+            background-color: @green;
+        }
+        .badge {
+            --bs-badge-color: @base;
+        }
+        .path-mod-checkmark td.submissionnotgraded {
+            color: @text;
+        }
+        .path-mod-assign td.submissionnotgraded {
+            color: @text;
+        }
+
+        /* ----- MISC FIXES ----- */
+        .form-control {
+            border-color: @surface0;
+        }
+        .nav-link:focus,
+        a.dropdown-toggle:focus,
+        input[type="checkbox"]:focus,
+        .form-check-intput:focus,
+        .form-control:focus {
+            box-shadow: 0 0 0 .15rem @lavender;
+        }
+        .form-check-input {
+            --bs-form-check-bg: @base;
+        }
+        .form-check-input:checked {
+            background-color: @lavender;
+            border-color: @lavender;
+        }
+        [role="treeitem"]:not([aria-expanded="true"]):focus {
+            box-shadow: 0 0 0 .15rem @lavender;
+        } // this is for spans that had inline styling and no id, so i had to grab an id/class from somewhere higher, should still be unique tho
+        .no-overflow span,
+        #intro span {
+            color: @red !important;
+        }
+        .path-mod .automatic-completion-conditions .badge {
+            mix-blend-mode: normal;
+        }
+
+        /* ----- ICON / IMAGES ----- */
+        img[src*="/t/collapsed"],
+        img[src*="/f/pdf"] {
+            filter: @text-filter;
+        } // another workaround, for gif spritesheets
+        // i couldnt figure out a way to recolour/filter the gif, so my solution is to simply nuke the image and replace it with a roughly similar unicode character instead
+        .ygtvln {
+            background: none !important;
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .ygtvln::before {
+            content: "▶";
+            font-size: 12px;
+            color: @text;
+        }
+    }
+}
