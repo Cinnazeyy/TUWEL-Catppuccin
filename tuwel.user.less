@@ -421,6 +421,21 @@
         .moodle-dialogue-base .closebutton::after {
             color: @text;
         }
+
+        /* ----- LOGIN ----- */
+        .login-container {
+            background-color: @base;
+        }
+        .login-heading.mb-2.text-primary {
+            color: @lavender !important;
+        }
+        body.pagelayout-login.loginbackgroundimage1 {
+            background-color: @mantle;
+            background-image: none;
+        }
+        .login-container .login-divider {
+            border-top: 1px solid @surface0;
+        }
         
         /* ----- MISC FIXES ----- */
         .form-control {
@@ -462,9 +477,6 @@
         }
         .path-local-downloadcenter #region-main .card.block {
             background-color: @base;
-        }
-        .card {
-            --bs-card-border-color: @surface0;
         }
         .text-dark {
             color: @subtext1 !important;
