@@ -62,6 +62,8 @@
         --bs-secondary-rgb: red(@mantle), green(@mantle), blue(@mantle);
         --bs-light-rgb: red(@base), green(@base), blue(@base);
         --bs-form-invalid-color: @red;
+        --bs-danger-text-emphasis: @red;
+        --bs-info-bg-subtle: @green;
 
         /* ----- SURFACES ----- */
         .bg-white {
@@ -134,12 +136,15 @@
                 background-color: @lavender !important;
             }
         }
-
-        /* ----- BUTTONS ----- */
-        .btn:hover {
-            color: var(--bs-btn-hover-color) !important;
-            background-color: @base;
+        .moremenu .dropdown-item[aria-current="true"] {
+            color: @lavender;
         }
+        .moremenu .dropdown-item[aria-current="true"]:focus-within, .moremenu .dropdown-item[aria-current="true"]:hover {
+            background-color: @lavender;
+            color: @base;
+        }
+
+        /* ----- BUTTONS ----- */5
         .btn-sm {
             --bs-btn-hover-bg: @mantle;
             --bs-btn-bg: @base;
@@ -174,6 +179,10 @@
             opacity: 1;
             border-radius: 0.5rem !important;
         }
+        button.rounded-circle:hover {
+            background-color: @lavender !important;
+        }
+
 
         /* ----- DASHBOARD ----- */
         .list-group {
@@ -217,7 +226,7 @@
             --bs-dropdown-link-active-bg: @lavender;
             --bs-dropdown-link-active-color: @base;
         }
-
+        
         /* ----- GENERAL DRAWERS ----- */
         .drawer {
             background-color: @mantle;
@@ -357,7 +366,45 @@
         .path-mod-assign td.submissionnotgraded {
             color: @text;
         }
+        
+        /* ----- REGISTRATION ----- */
+        .path-mod-grouptool #registration_form .group.empty {
+            background-color: @base;
+            border: 0px solid;
+            color: @text;
+        }
+        .path-mod-grouptool #registration_form .group.empty h2 {
+            color: @text;
+        }
+        .path-mod-grouptool #registration_form .group {
+            background-color: @maroon;
+            border: 0px solid;
+            color: @base;
+        }
+        .path-mod-grouptool #registration_form .group h2 {
+            color: @base;
+        }
 
+        /* ----- GRADING ------ */
+        .path-grade-report-user .user-grade thead th,
+        .path-grade-report-user .user-grade tbody tr,
+        .path-grade-report-user .user-grade th.category,
+        .path-grade-report-user .user-grade td,
+        .path-grade-report-user .user-grade .baggt,
+        .path-grade-report-user .user-grade th.column-itemname:not(.header, .category, .baggt, .baggb),
+        .path-grade-report-user .user-report-container {
+            background-color: @base;
+        }
+        .tertiary-navigation.full-width-bottom-border,
+        .path-grade-report-user .user-grade th.column-itemname:not(.header, .category, .baggt, .baggb),
+        .path-grade-report-user .user-grade td.item,
+        .path-grade-report-user .user-grade th.category {
+            border-color: @surface0;
+        }
+        .navitem-divider {
+            background-color: @surface0;
+        }
+        
         /* ----- MISC FIXES ----- */
         .form-control {
             border-color: @surface0;
@@ -385,6 +432,19 @@
         }
         .path-mod .automatic-completion-conditions .badge {
             mix-blend-mode: normal;
+        }
+        
+        .calendar_event_course {
+            background-color: @mantle;
+        }
+        .alert {
+            --bs-alert-border: 0px solid;
+        }
+        .alert .h6 {
+            color: @base;
+        }
+        .path-local-downloadcenter #region-main .card.block {
+            background-color: @base;
         }
 
         /* ----- ICON / IMAGES ----- */
