@@ -16,7 +16,7 @@
 ==/UserStyle== */
 @import "https://userstyles.catppuccin.com/lib/lib.less";
 
-@-moz-document url-prefix("https://tuwel.tuwien.ac.at/") {
+@-moz-document url-prefix("https://tuwel.tuwien.ac.at/"), url-prefix("https://idp.zid.tuwien.ac.at/") {
     :root {
         @media (prefers-color-scheme: light) {
             #catppuccin(@lightFlavor);
@@ -480,6 +480,66 @@
         }
         .text-dark {
             color: @subtext1 !important;
+        }
+    
+        /* ----- SSO (idp.zid) ----- */
+        #wpMainHeader {
+            background-color: @mantle;
+            & when (@flavor =latte) {
+                box-shadow: 0 1px 5px 0 @crust;
+            }
+            & when not(@flavor =latte) {
+                box-shadow: 0 1px 5px 0 @mantle;
+            }
+        }
+        .wpPageSidebar .mm-navbars-top .wpGeneralHeaderLoginLanguageElement {
+            background-color: @base;
+        }
+        .wpPageSidebar .mm-navbars-top .wpGeneralHeaderLoginLanguageElement .wpGeneralHeaderLoginLanguageElementLanguage {
+            border: 0px;
+        }
+        #core\:loginuserpass {
+            background-color: @base;
+            color: @text;
+        }
+        #core\:loginuserpass h1,
+        #core\:loginuserpass h2,
+        #core\:loginuserpass h3,
+        #core\:loginuserpass a {
+            color: @lavender;
+        }
+        #core\:loginuserpass .btn {
+            background-color: @lavender;
+            border-color: @lavender;
+            color: @base;
+        }
+    
+        #core\:loginuserpass .form-control {
+            background-color: @mantle;
+            color: @text;
+        }
+    
+        .wpFooter .wpFooterSitemap {
+            background-color: @base;
+        }
+        .alert-warning {
+            background-color: @yellow;
+            border: 0px;
+            color: @base;
+        }
+        .mm-menu {
+            background-color: @mantle !important;
+        }
+        .wpFooter .wpFooterImprint,
+        .wpFooter .wpFooterImprint .wpFooterImprintNav LI A,
+        .wpFooter .wpFooterImprint .wpFooterImprintNav LI A:hover,
+        .wpPageSidebar .mm-navbars-top .wpGeneralHeaderLoginLanguageElement .wpGeneralHeaderLoginLanguageElementLanguage A > SPAN,
+        .wpPageSidebar .mm-navbars-top .wpGeneralHeaderLoginLanguageElement .wpGeneralHeaderLoginLanguageElementLanguage A:not(.disabled):hover > SPAN {
+            background-color: @lavender;
+            color: @base;
+        }
+        #wpMainHeader .wpMainHeaderNav UL > LI > A {
+            color: @lavender;
         }
 
         /* ----- ICON / IMAGES ----- */
