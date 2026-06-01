@@ -144,7 +144,7 @@
             color: @base;
         }
 
-        /* ----- BUTTONS ----- */5
+        /* ----- BUTTONS ----- */
         .btn-sm {
             --bs-btn-hover-bg: @mantle;
             --bs-btn-bg: @base;
@@ -385,7 +385,7 @@
             color: @base;
         }
 
-        /* ----- GRADING ------ */
+        /* ----- GRADING ----- */
         .path-grade-report-user .user-grade thead th,
         .path-grade-report-user .user-grade tbody tr,
         .path-grade-report-user .user-grade th.category,
@@ -403,6 +403,23 @@
         }
         .navitem-divider {
             background-color: @surface0;
+        }
+    
+        /* ----- FILE UPLOAD ----- */
+        .moodle-dialogue-base .moodle-dialogue-wrap .moodle-dialogue-hd.yui3-widget-hd,
+        .moodle-dialogue-base .moodle-dialogue-wrap,
+        .fp-iconview .fp-filename-field .fp-filename,
+        .file-picker .fp-content {
+            background-color: @base;
+        }
+        .moodle-dialogue-base .moodle-dialogue-wrap .moodle-dialogue-hd,
+        .moodle-dialogue-base .moodle-dialogue-wrap,
+        .fp-iconview .fp-thumbnail,
+        .fp-iconview .fp-thumbnail img {
+            border: 0px;
+        }
+        .moodle-dialogue-base .closebutton::after {
+            color: @text;
         }
         
         /* ----- MISC FIXES ----- */
@@ -446,12 +463,19 @@
         .path-local-downloadcenter #region-main .card.block {
             background-color: @base;
         }
+        .card {
+            --bs-card-border-color: @surface0;
+        }
+        .text-dark {
+            color: @subtext1 !important;
+        }
 
         /* ----- ICON / IMAGES ----- */
         img[src*="/t/collapsed"],
         img[src*="/f/pdf"] {
             filter: @text-filter;
-        } // another workaround, for gif spritesheets
+        } 
+        // another workaround, for gif spritesheets
         // i couldnt figure out a way to recolour/filter the gif, so my solution is to simply nuke the image and replace it with a roughly similar unicode character instead
         .ygtvln {
             background: none !important;
